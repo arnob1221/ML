@@ -30,4 +30,3 @@ df.duplicated().sum()
 
 #6. Correlation between coloums?
 df.corr()["Age"]
-
