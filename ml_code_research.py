@@ -64,3 +64,47 @@ sns.heatmap(df.corr(numeric_only=True),annot=True)   # (1=perfect positive, 0.9=
 ## (D)  Data cleaning and processing  ##
 # df e je data ase ota rekhe dibi, erpor new akta banabo df_cleaning nm e
 df_cleaned = df.copy()
+df_cleaned.head()
+df_cleaned.shape
+df_cleaned.drop_duplicates(inplace = True)
+df_cleaned.shape
+df_cleaned.isnull().sum()
+df_cleaned.dtypes
+df_cleaned["sex"].value_counts() #categoirical data
+df_cleaned["sex"] = df_cleaned["sex"].map({"male" : 0, "female" : 1}) #lable encoding
+#lable encoding tokhon e korbo, jokhon gendrer, smoker-yes/no amn type of data thakbe
+
+
+#encoding kore chaile sei columns er name change kore dite pari
+df_cleaned.rename(columns={
+ "sex" : "is_female",
+  "smoker" : "is_smoker"
+},inplace = True)
+
+
+df_cleaned["region"].value_counts() #one hot encoding
+#ek er odhik type like region type data te one hot encoding use korbo
+df_cleaned = pd.get_dummies(df_cleaned,columns =["region"],drop_first = True) # true/false e ase
+df_cleaned = df_cleaned.astype(int) #true/false gulo re numerical e niya
+#now the dataset is cleaned and all is in numerical values
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
