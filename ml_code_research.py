@@ -8,7 +8,7 @@ df = pd.read_csv('diabetes_risk.csv') #df=data frame
 
 
 
-
+> [!TIP]
 ## Any Data_Set Understanding ##
 
 #1. How big is the data?
