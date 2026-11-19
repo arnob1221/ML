@@ -1,3 +1,4 @@
+# (A). to call all functions libraries
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -7,9 +8,7 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('diabetes_risk.csv') #df=data frame
 
 
-
-> [!TIP]
-## Any Data_Set Understanding ##
+## (B) Any Data_Set Understanding ##
 
 #1. How big is the data?
 df.shape
@@ -39,7 +38,7 @@ df[df.duplicated(keep=False)] # to see which one is actually the same
 df.corr()["Age"]
 
 
-##  Data visualization  ##
+## (C)  Data visualization  ##
 # 1. sob gulo numeric ak sathe histplot, using loop
 numeric_columns = ['age', 'bmi', 'children', 'charges']
 for col in numeric_columns:
@@ -62,6 +61,6 @@ sns.heatmap(df.corr(numeric_only=True),annot=True)   # (1=perfect positive, 0.9=
 
 
 
-##  Data cleaning and processing  ##
+## (D)  Data cleaning and processing  ##
 # df e je data ase ota rekhe dibi, erpor new akta banabo df_cleaning nm e
 df_cleaned = df.copy()
