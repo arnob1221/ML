@@ -70,7 +70,14 @@ df_cleaned.head()
 df_cleaned.shape
 df_cleaned.drop_duplicates(inplace = True)
 df_cleaned.shape
-df_cleaned.isnull().sum()
+df_cleaned.isnull().sum() #null value dakha
+
+#replace null values with mean value
+resting_bp_mean = df.loc[df['RestingBP'] != 0, 'RestingBP'].mean()
+df['RestingBP'] = df['RestingBP'].replace(0, resting_bp_mean)
+df['RestingBP'] = df['RestingBP'].round(2)
+
+
 df_cleaned.dtypes
 df_cleaned["sex"].value_counts() # categorical data dakha
 df_cleaned["sex"] = df_cleaned["sex"].map({"male" : 0, "female" : 1}) # label encoding 
@@ -89,6 +96,10 @@ df_cleaned["region"].value_counts() #categorical but onk value ala
 df_cleaned = pd.get_dummies(df_cleaned,columns =["region"],drop_first = True) #one hot encoding, true/false e ase
 df_cleaned = df_cleaned.astype(int) #true/false gulo re numerical e niya
 # Now the dataset is cleaned, and all values are numerical
+
+
+df_encode = pd.get_dummies(df,drop_first=True) #sorasorio kora jabe
+df_cleaned = df_cleaned.astype(int)
 
 
 ##    ##
